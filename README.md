@@ -1,2 +1,5 @@
-# PROJET
-Traitement de la collection de données 
+# Projet
+Text Data PreProcessing using Tensorflow
+ 
+ Libraries that we used : 
+ Keras , pandas , nltk 
