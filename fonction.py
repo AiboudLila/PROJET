@@ -1,14 +1,8 @@
-import numpy as np  # pas utilisé !
-import matplotlib.pyplot as plt # pas utilisé !
-import string # pas utilisé
+
 import nltk
-from nltk.tokenize import sent_tokenize  # pas utilisé et importé deux fois !!
 import pandas as pd 
-from keras.preprocessing.text import one_hot # pas utilisé
 from keras.preprocessing.text import text_to_word_sequence 
 from keras.preprocessing.text import Tokenizer
-from nltk import sent_tokenize # pas utilisé et importé deux fois !!
-from nltk.tokenize import word_tokenize # pas utilisé
 from nltk.corpus import stopwords
 
 class Data_Processing:
@@ -16,7 +10,7 @@ class Data_Processing:
         self.subject=list(subject)
         self.text=text
     def preprocessText(self):
-        """Ici tu mets ton commentaire..."""
+        """Prétraitement des données en remplacant chaque caractere par une expression de façon a garder sa sémantique ..."""
         for id, element in enumerate(self.subject):
             self.subject[id] = self.subject[id].replace(r'£|\$', 'moneysymb')
 
@@ -37,7 +31,7 @@ class Data_Processing:
                 self.subject[id] = _porterStreamer.stem("".join(_elementsplited))
         return self.subject 
     def tokenize(self):
-        """Ici tu mets ton commentaire..."""
+        """Fonction tokenize elle nous permet de tokenizer et de transformer en matrice ..."""
         for _word in self.text: 
             _tokens = text_to_word_sequence(_word)
             _tokenizer = Tokenizer()
